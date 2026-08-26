@@ -1,0 +1,6 @@
+{
+  "name": "StudyGem - AI Student Study Suite",
+  "description": "All-in-one free, ad-supported AI study platform for students: turn YouTube videos and lectures into structured Cornell study notes, flashcards, mock quizzes, formula cheat sheets, essay outlines, and personalized study schedules with spaced repetition and focus tools.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

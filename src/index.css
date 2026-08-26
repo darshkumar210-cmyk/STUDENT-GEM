@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@media print {
+  @page {
+    margin: 12mm 15mm 15mm 15mm;
+    size: auto;
+  }
+
+  /* Reset layout & backgrounds for ink efficiency */
+  *,
+  *::before,
+  *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html,
+  body,
+  #root {
+    background: #ffffff !important;
+    color: #111827 !important;
+    font-size: 11pt !important;
+    line-height: 1.5 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Hide all non-essential navigation, sidebars, bars, and interactive UI */
+  nav,
+  header,
+  footer,
+  aside,
+  iframe,
+  video,
+  button,
+  input,
+  select,
+  textarea,
+  .no-print,
+  .navbar,
+  .ad-banner,
+  .affiliate-bar,
+  .study-voice-assistant,
+  .command-palette,
+  .modal-backdrop,
+  .dialog-overlay,
+  .toast,
+  .cursor-pointer,
+  [role="dialog"],
+  [role="navigation"],
+  [data-no-print="true"] {
+    display: none !important;
+  }
+
+  /* Unhide printable content */
+  .print-only {
+    display: block !important;
+  }
+
+  /* Ensure containers expand gracefully without clipping or scrollbars */
+  main,
+  section,
+  article,
+  .print-container,
+  .study-sheet-printable {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: auto !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Page break rules for structured academic notes */
+  h1, h2, h3, h4, h5, h6 {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+    color: #0f172a !important;
+    font-weight: 800 !important;
+  }
+
+  h1 {
+    font-size: 18pt !important;
+    margin-bottom: 6pt !important;
+  }
+
+  h2 {
+    font-size: 14pt !important;
+    margin-top: 12pt !important;
+    margin-bottom: 4pt !important;
+  }
+
+  h3 {
+    font-size: 12pt !important;
+    margin-top: 8pt !important;
+    margin-bottom: 3pt !important;
+  }
+
+  p, ul, ol, dl {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Cards, tables, definitions and Cornell blocks break cleanly */
+  .print-card,
+  .cornell-notes-block,
+  .cornell-cue-col,
+  .flashcard-print,
+  .quiz-item-print,
+  table,
+  tr,
+  blockquote,
+  pre {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .print-card {
+    border: 1px solid #cbd5e1 !important;
+    border-radius: 6px !important;
+    padding: 8pt !important;
+    margin-bottom: 8pt !important;
+    background: #ffffff !important;
+  }
+
+  /* Links */
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+}
+
+/* Custom scrollbar for dense study notes */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

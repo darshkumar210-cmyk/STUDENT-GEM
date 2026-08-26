@@ -1,0 +1,51 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User account profile and subscription state",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "isPro": { "type": "boolean" },
+        "proPlan": { "type": "string", "enum": ["free", "monthly", "semester"] },
+        "proExpiresAt": { "type": "string" },
+        "currency": { "type": "string" },
+        "country": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "aiGenerationsCount": { "type": "number" },
+        "adsWatchedCount": { "type": "number" }
+      },
+      "required": ["uid", "isPro"]
+    },
+    "StudyNote": {
+      "title": "StudyNote",
+      "description": "Saved AI generated study notes",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "summary": { "type": "string" },
+        "videoUrl": { "type": "string" },
+        "videoTitle": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "tags": { "type": "string" }
+      },
+      "required": ["id", "userId", "title"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile with Pro status, localized billing, and usage stats"
+    },
+    "/users/{userId}/notes/{noteId}": {
+      "schema": "StudyNote",
+      "description": "Saved study notes and synthesis history for the student"
+    }
+  }
+}

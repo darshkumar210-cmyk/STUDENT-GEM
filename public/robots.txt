@@ -1,0 +1,17 @@
+# User-agent: *
+User-agent: *
+Allow: /
+
+# Sitemap definition
+Sitemap: https://studygem.app/sitemap.xml
+
+# StudyGem Academic Modules
+Allow: /youtube-notes
+Allow: /cornell-notes
+Allow: /flashcards
+Allow: /quiz
+Allow: /cheat-sheet
+Allow: /study-planner
+Allow: /essay-helper
+Allow: /focus-room
+Allow: /study-hub
